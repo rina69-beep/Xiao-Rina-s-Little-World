@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xiao Rina's Little World</title>
+
+<style>
+:root {
+  --red: #96364b;
+  --pink: #f4c5cd;
+  --cream: #fff8ef;
+  --gold: #d7b16d;
+  --blue: #dcebf6;
+  --ink: #633746;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: Georgia, serif;
+  background: linear-gradient(
+    135deg, #fff4ef, #f8dfe5, #fbefd9
+  );
+}
+
+/* NAVIGATION */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 22px;
+  padding: 16px;
+  background: #68283c;
+  border-bottom: 2px solid var(--gold);
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: var(--gold);
+}
+
+/* HOMEPAGE */
+.hero {
+  min-height: 520px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--cream);
+  background: linear-gradient(
+    145deg, #72283e, #b64e64, #e6aab1
+  );
+}
+
+.hero-inner {
+  padding: 45px 25px;
+  border: 1px solid var(--gold);
+  border-radius: 35px;
+  background: #68283c55;
+  max-width: 760px;
+}
+
+h1 {
+  font-size: clamp(42px, 8vw, 76px);
+  font-style: italic;
+  line-height: 1;
+  margin: 20px 0;
+}
+
+.hero p {
+  font-size: 18px;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 23px;
+  border-radius: 25px;
+  background: var(--cream);
+  color: var(--red);
+  text-decoration: none;
+}
+
+/* CONTENT */
+main {
+  width: min(950px, 92%);
+  margin: auto;
+  padding: 30px 0 55px;
+}
+
+section {
+  padding: 20px 0;
+  scroll-margin-top: 75px;
+}
+
+.heading {
+  text-align: center;
+  color: var(--red);
+  font-size: 30px;
+  font-style: italic;
+  margin: 12px 0 22px;
+}
+
+.card {
+  background: #fff9ef;
+  border: 1px solid var(--gold);
+  border-radius: 23px;
+  padding: 24px;
+  box-shadow: 0 10px 28px #873c5015;
+}
+
+h2 {
+  color: var(--red);
+}
+
+.intro {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.fox {
+  width: 112px;
+  height: 112px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 56px;
+  background: linear-gradient(135deg, var(--pink), var(--blue));
+  border: 4px solid white;
+  outline: 1px solid var(--gold);
+}
+
+/* BIODATA */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 11px;
+  margin-top: 20px;
+}
+
+.info {
+  background: #fff0f0;
+  border: 1px solid #edc7c6;
+  border-radius: 15px;
+  padding: 13px;
+}
+
+.info b {
+  display: block;
+  color: var(--red);
+  font-size: 11px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+/* FAVORITES */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chip {
+  background: #fff0f0;
+  border: 1px solid #edc4c5;
+  border-radius: 22px;
+  padding: 10px 15px;
+}
+
+.blue {
+  background: var(--blue);
+}
+
+/* DREAMS */
+.dream {
+  text-align: center;
+  background: linear-gradient(135deg, #fff7ed, #f9e0e5);
+}
+
+.quote {
+  text-align: center;
+  color: var(--red);
+  font-size: 22px;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* SOCIAL MEDIA */
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.social {
+  flex: 1;
+  min-width: 150px;
+  text-align: center;
+  padding: 15px;
+  background: #fff0f0;
+  border: 1px solid #edc4c5;
+  border-radius: 15px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  background: #68283c;
+  color: white;
+  padding: 30px 15px;
+  border-top: 2px solid var(--gold);
+}
+
+footer strong {
+  color: #f5d9a1;
+}
+
+/* MOBILE */
+@media(max-width:600px) {
+  nav {
+    gap: 12px;
+    font-size: 12px;
+  }
+
+  .intro {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: 440px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="#home">Home</a>
+  <a href="#about">About Me</a>
+  <a href="#favorites">Favorites</a>
+  <a href="#hobbies">Hobbies</a>
+  <a href="#dreams">Dreams</a>
+  <a href="#social">Socials</a>
+</nav>
+
+<!-- HOMEPAGE -->
+<header class="hero" id="home">
+  <div class="hero-inner">
+    <p>♡ 欢迎来到我的小世界 ♡</p>
+
+    <h1>
+      Xiao Rina's<br>
+      Little World
+    </h1>
+
+    <p>
+      A little world filled with dreams,
+      flowers, and lovely things.
+    </p>
+
+    <a class="btn" href="#about">
+      Enter my little world ✿
+    </a>
+  </div>
+</header>
+
+<main>
+
+<!-- ABOUT ME -->
+<section id="about">
+  <h2 class="heading">✿ About Me ✿</h2>
+
+  <div class="card">
+
+    <div class="intro">
+      <div class="fox">🦊</div>
+
+      <div>
+        <h2>你好, I'm Rina! ♡</h2>
+
+        <p>
+          Welcome to my little corner of the internet.
+          I'm a friendly person who loves drawing,
+          writing, and discovering new things.
+        </p>
+      </div>
+    </div>
+
+    <div class="info-grid">
+
+      <div class="info">
+        <b>Full Name</b>
+        Rina Mariana
+      </div>
+
+      <div class="info">
+        <b>Nickname</b>
+        Rina
+      </div>
+
+      <div class="info">
+        <b>Mandarin Name</b>
+        鱼梅
+      </div>
+
+      <div class="info">
+        <b>MBTI</b>
+        ENTP
+      </div>
+
+      <div class="info">
+        <b>Zodiac</b>
+        Aquarius
+      </div>
+
+      <div class="info">
+        <b>Personality</b>
+        Kind, friendly, cheerful and helpful
+      </div>
+
+      <div class="info">
+        <b>Strength</b>
+        Noticing what's happening around me
+      </div>
+
+      <div class="info">
+        <b>Weakness</b>
+        Sometimes a little lazy ♡
+      </div>
+
+    </div>
+
+    <p>My spirit animal: a clever little fox 🦊</p>
+
+  </div>
+</section>
+
+<!-- FAVORITES -->
+<section id="favorites">
+  <h2 class="heading">✿ My Favorites ✿</h2>
+
+  <div class="card">
+    <div class="chips">
+      <span class="chip">🎀 Pink</span>
+      <span class="chip blue">🩵 Blue</span>
+      <span class="chip">🐟 Fish</span>
+      <span class="chip">🥛 Nobo milk</span>
+      <span class="chip">🥭 Mango</span>
+      <span class="chip">🦊 Foxes</span>
+      <span class="chip">🌸 Peony</span>
+      <span class="chip">🇨🇳 China</span>
+      <span class="chip">⚡ Killua</span>
+      <span class="chip">🎵 Confident</span>
+      <span class="chip">🎵 Cinderella</span>
+      <span class="chip">🎤 Justin Bieber</span>
+      <span class="chip">🎤 Ariana Grande</span>
+      <span class="chip">🎬 Vernalta</span>
+    </div>
+  </div>
+</section>
+
+<!-- HOBBIES -->
+<section id="hobbies">
+  <h2 class="heading">✿ My Hobbies ✿</h2>
+
+  <div class="card">
+    <div class="info-grid">
+
+      <div class="info">
+        <b>Hobby</b>
+        Drawing 🎨
+      </div>
+
+      <div class="info">
+        <b>Free Time</b>
+        Drawing and writing
+      </div>
+
+      <div class="info">
+        <b>Want to Learn</b>
+        Mandarin and Cantonese
+      </div>
+
+      <div class="info">
+        <b>My Ability</b>
+        Memorizing languages quickly
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DREAMS -->
+<section id="dreams">
+  <h2 class="heading">✿ My Little Dreams ✿</h2>
+
+  <div class="card dream">
+
+    <div style="font-size:38px">
+      🏮 🏯 🌸
+    </div>
+
+    <h2>My Dream in China</h2>
+
+    <p>
+      My dream is to become a designer,
+      visit China, and watch a TF Family
+      concert one day.
+    </p>
+
+    <p class="quote">
+      "Work hard, so I can rest without feeling guilty."
+    </p>
+
+  </div>
+</section>
+
+<!-- RANDOM FACTS -->
+<section>
+  <h2 class="heading">✿ Random Facts ✿</h2>
+
+  <div class="card">
+    <div class="info-grid">
+
+      <div class="info">
+        ♡ I can make someone feel comfortable
+        enough to become closer friends.
+      </div>
+
+      <div class="info">
+        ♡ I can easily find common ground
+        when chatting.
+      </div>
+
+      <div class="info">
+        ♡ I know how to keep a secret.
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL MEDIA -->
+<section id="social">
+  <h2 class="heading">✿ Find Me Here ✿</h2>
+
+  <div class="card">
+    <div class="socials">
+
+      <div class="social">
+        <b>Instagram</b><br>
+        rinasaha‽
+      </div>
+
+      <div class="social">
+        <b>TikTok</b><br>
+        chassie.bloom
+      </div>
+
+      <div class="social">
+        <b>Pinterest</b><br>
+        zuoqihaaan
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MESSAGE -->
+<section>
+  <h2 class="heading">✿ A Little Message ✿</h2>
+
+  <div class="card">
+
+    <p class="quote">
+      "In the end, it's all God's plan."
+    </p>
+
+    <p style="text-align:center">
+      A little message for you:
+      <b>You're cute! ♡</b>
+    </p>
+
+    <p style="text-align:center">
+      A kind-hearted girl who loves
+      drawing, dreaming, and foxes.
+    </p>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <strong>谢谢你来到我的小世界 ♡</strong>
+
+  <p>
+    Thank you for visiting
+    Xiao Rina's Little World!
+  </p>
+
+  <small>
+    Made with love, peonies, and a little fox magic ✿
+  </small>
+</footer>
+
+</body>
+  </html>
